@@ -303,8 +303,8 @@
     };
 
     Slick.prototype.asNavFor = function(index) {
-        var _ = this, asNavFor = _.options.asNavFor != null ? $(_.options.asNavFor).getSlick() : null;
-        if(asNavFor != null) asNavFor.slideHandler(index, true);
+        var _ = this, asNavFor = _.options.asNavFor !== null ? $(_.options.asNavFor).getSlick() : null;
+        if(asNavFor !== null) asNavFor.slideHandler(index, true);
     };
 
     Slick.prototype.applyTransition = function(slide) {
@@ -568,6 +568,7 @@
                 var index = event.data.index === 0 ? 0 :
                     event.data.index || $(event.target).parent().index() * _.options.slidesToScroll;
                 _.slideHandler(index);
+                break;
 
             default:
                 return false;
@@ -585,7 +586,7 @@
             event.preventDefault();
         }
 
-    }
+    };
 
     Slick.prototype.destroy = function() {
 
@@ -722,7 +723,7 @@
         var _ = this;
 
         var breakPoint = 0;
-        var counter = 0
+        var counter = 0;
         var pagerQty = 0;
 
         if(_.options.infinite === true) {
@@ -950,7 +951,7 @@
             }
         });
 
-        $('*[draggable!=true]', _.$slideTrack).on('dragstart', function(e){ e.preventDefault(); })
+        $('*[draggable!=true]', _.$slideTrack).on('dragstart', function(e){ e.preventDefault(); });
 
         $(window).on('load.slick.slick-' + _.instanceUid, _.setPosition);
         $(document).on('ready.slick.slick-' + _.instanceUid, _.setPosition);
@@ -1042,12 +1043,12 @@
         loadImages(loadRange);
 
           if (_.slideCount <= _.options.slidesToShow){
-              cloneRange = _.$slider.find('.slick-slide')
-              loadImages(cloneRange)
+              cloneRange = _.$slider.find('.slick-slide');
+              loadImages(cloneRange);
           }else
         if (_.currentSlide >= _.slideCount - _.options.slidesToShow) {
             cloneRange = _.$slider.find('.slick-cloned').slice(0, _.options.slidesToShow);
-            loadImages(cloneRange)
+            loadImages(cloneRange);
         } else if (_.currentSlide === 0) {
             cloneRange = _.$slider.find('.slick-cloned').slice(_.options.slidesToShow * -1);
             loadImages(cloneRange);
@@ -1839,7 +1840,7 @@
 
         var _ = this, centerOffset;
 
-        centerOffset = Math.floor(_.options.slidesToShow / 2)
+        centerOffset = Math.floor(_.options.slidesToShow / 2);
 
         if (_.options.arrows === true && _.options.infinite !==
             true && _.slideCount > _.options.slidesToShow) {
