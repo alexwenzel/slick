@@ -795,11 +795,11 @@
             } else {
                 targetSlide = _.$slideTrack.children('.slick-slide').eq(slideIndex + _.options.slidesToShow);
             }
-            
+
             if (targetSlide[0]) {
 
               if ( targetSlide[0].offsetLeft !== 0 && targetSlide[0].offsetWidth != _.slideWidth) {
-                targetLeft = (targetSlide[0].offsetLeft - targetSlide[0].offsetWidth) * -1;
+                targetLeft = targetSlide[0].offsetWidth * -1;
               } else {
                 targetLeft = targetSlide[0].offsetLeft * -1;
               }
