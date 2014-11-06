@@ -1,3 +1,8 @@
+alexwenzel/slick
+-------
+
+If the slides have a variable width, this slick modification only slides and shows the specified variable width and not the global container width.
+
 slick
 -------
 
